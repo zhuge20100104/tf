@@ -17,15 +17,15 @@ x_train, x_test = x_train/255.0, x_test/255.0
 class LeNet5(Model):
     def __init__(self):
         super(LeNet5, self).__init__()
-        self.c1 = Conv2D(filters=6, kernel_size=(5, 5), activation='sigmod')
+        self.c1 = Conv2D(filters=6, kernel_size=(5, 5), activation='sigmoid')
         self.p1 = MaxPool2D(pool_size=(2, 2), strides=2)
         
-        self.c2 = Conv2D(filters=16, kernel_size=(5, 5), activation='sigmod')
+        self.c2 = Conv2D(filters=16, kernel_size=(5, 5), activation='sigmoid')
         self.p2 = MaxPool2D(pool_size=(2, 2), strides=2)
         
         self.flattern = Flatten()
-        self.f1 = Dense(120, activation='sigmod')
-        self.f2 = Dense(84, activation='sigmod')
+        self.f1 = Dense(120, activation='sigmoid')
+        self.f2 = Dense(84, activation='sigmoid')
         self.f3 = Dense(10, activation='softmax')
         
     def call(self, x):
