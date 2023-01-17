@@ -2,7 +2,7 @@ import tensorflow as tf
 import os 
 import numpy as np
 from matplotlib import pyplot as plt
-from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, MaxPool2D, Dropout, Flatten, Dense
+from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dense
 from tensorflow.keras import Model
 
 np.set_printoptions(threshold=np.inf)
@@ -23,7 +23,7 @@ class LeNet5(Model):
         self.c2 = Conv2D(filters=16, kernel_size=(5, 5), activation='sigmoid')
         self.p2 = MaxPool2D(pool_size=(2, 2), strides=2)
         
-        self.flattern = Flatten()
+        self.flatten = Flatten()
         self.f1 = Dense(120, activation='sigmoid')
         self.f2 = Dense(84, activation='sigmoid')
         self.f3 = Dense(10, activation='softmax')
